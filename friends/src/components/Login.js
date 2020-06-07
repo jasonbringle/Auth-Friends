@@ -3,7 +3,7 @@ import axiosWithAuth from '../util/axiosWithAuth'
 
 export default function Login(props){
     const [ login, setLogin ] = useState({
-        name:'',
+        username:'',
         password:''
     })
 
@@ -16,12 +16,17 @@ export default function Login(props){
 
     const loginSubmit = e => {
         e.preventDefault();
+        console.log(login)
         axiosWithAuth()
-        .post('/api/login', login)
+        .post('/login', login)
         .then(res=> {
             localStorage.setItem("token", res.data.payload);
             props.history.push("/authorized-page");})
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
+        setLogin({
+            username: '',
+            password: ''
+        })
       };
 
 
@@ -29,8 +34,8 @@ export default function Login(props){
     return(
         <div>
             <form onSubmit={loginSubmit}>
-                <input type='text' onChange={handleChange} placeholder="name" />
-                <input type='password' onChange={handleChange} placeholder='Password'/>
+                <input type='text' name='username' value={login.username} onChange={handleChange} placeholder="Username" />
+                <input type='password' name='password'value={login.password} onChange={handleChange} placeholder='Password'/>
                 <button>submit</button>
             </form>
         </div>
