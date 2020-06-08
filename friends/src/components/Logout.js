@@ -1,6 +1,6 @@
 import React, {  useContext } from 'react'
 import FriendsContext from '../context/FriendsContext'
-import { FormDiv, Input, Button, DivContainer } from '../styled/index'
+import { LogoutDiv, Input, Button, DivContainer } from '../styled/index'
 import axiosWithAuth from '../util/axiosWithAuth'
 
 
@@ -20,9 +20,9 @@ export default function Login(props){
 
     return(
         <DivContainer>
-            <FormDiv onSubmit={logout}>
+            <LogoutDiv onSubmit={logout}>
                 <Button>Log Out</Button>
-            </FormDiv>
+            </LogoutDiv>
         </DivContainer>
     )
 }

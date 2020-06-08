@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import FriendsContext from '../context/FriendsContext';
-import { NewFriendFormDiv, Input, Button, DivContainer } from '../styled/index'
+import { NewFriendFormDiv, Input, Button, DivContainer, InputDiv, InputsDiv } from '../styled/index'
 
 
 export default function NewFriend(){
@@ -8,16 +8,26 @@ export default function NewFriend(){
 
     return (
         <DivContainer>
+            
             <NewFriendFormDiv onSubmit={submitNewFriend}>
                 <h2>ADD A NEW FRIEND!</h2>
-                    <label>New Friend Name</label>
-                        <Input type='text' name='name' onChange={newFriendChangeHandler} placeholder='Name' value={newFriend.name}/>
-                    <label>New Friend Age</label>
-                        <Input type='text' name='age' onChange={newFriendChangeHandler} placeholder='Age' value={newFriend.age}/>
-                    <label>New Friend Email</label>
-                        <Input type='text' name='email' onChange={newFriendChangeHandler} placeholder='Email' value={newFriend.email}/>
+                    <InputsDiv>
+                        <InputDiv>
+                            <label>New Friend Name</label>
+                                <Input type='text' name='name' onChange={newFriendChangeHandler} placeholder='Name' value={newFriend.name}/>
+                        </InputDiv>
+                        <InputDiv>
+                            <label>New Friend Age</label>
+                                <Input type='text' name='age' onChange={newFriendChangeHandler} placeholder='Age' value={newFriend.age}/>
+                        </InputDiv>
+                        <InputDiv>
+                            <label>New Friend Email</label>
+                                <Input type='text' name='email' onChange={newFriendChangeHandler} placeholder='Email' value={newFriend.email}/>
+                        </InputDiv>
+                    </InputsDiv>
                 <Button>Submit</Button>
             </NewFriendFormDiv>
+            
         </DivContainer>
     )
 }
