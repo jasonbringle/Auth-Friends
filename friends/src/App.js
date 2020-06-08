@@ -20,7 +20,7 @@ function App() {
     ...newFriend,
     [e.target.name]: e.target.value
     })
-}
+  }
 
   const submitNewFriend = e => {
     if (newFriend.name && newFriend.age && newFriend.email) {
@@ -44,12 +44,13 @@ function App() {
       .catch()
   }
 
-  // const deleteFriend = person => {
-  //     axiosWithAuth()
-  //     .delete(`friends/:${person.id}`)
-  //     .then(res=> res)
-  //     .catch(err => console.log('Person Not Deleted', err.message))
-  // }
+  const deleteFriend = e => {
+    console.log(e.target.id);
+    axiosWithAuth()
+    .delete(`/friends/${e.target.id}`)
+    .then(res=> setFriends(res.data))
+    .catch(err => console.log('Person Not Deleted', err.message))
+  }
 
   const [ friends, setFriends ] = useState([])
 
@@ -61,17 +62,17 @@ function App() {
 
   const [ newFriend, setNewFriend ] = useState(
     {
-        name:'',
-        age:'',
-        email:'',
-        id: Date.now()
+      name:'',
+      age:'',
+      email:'',
+      id: Date.now()
     }
   )
 
   return (
     <AppDiv>
         <Router >
-          <FriendsContext.Provider value={{ handleChange, login, setLogin, getData, friends, setFriends, newFriend, setNewFriend, newFriendChangeHandler, submitNewFriend}}>
+          <FriendsContext.Provider value={{ handleChange, login, setLogin, getData, friends, setFriends, newFriend, setNewFriend, newFriendChangeHandler, submitNewFriend, deleteFriend }}>
           <Header />  
           </FriendsContext.Provider> 
         </Router> 

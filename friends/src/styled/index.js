@@ -1,19 +1,20 @@
 import styled from 'styled-components'
 import img from '../img/friendsbackground.jpg'
+import img2 from '../img/friends.jpg'
 
 export const AppDiv = styled.div`
     background-image: url(${img});
-    background-size:cover; 
-    background-attachment:fixed; 
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-position-y: 150px;
     min-width: 100%;
-    min-height:100vh;
+    min-height: 100vh;
 
 `
 
-
 export const DivContainer = styled.div`
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding: 3rem;
 `
@@ -66,8 +67,6 @@ export const NewFriendFormDiv = styled.form`
     align-items: center;
     text-align: center;
     padding: 1rem;
-    /* width: 12rem;
-    height: 20rem; */
     border: 10px solid grey;
     border-radius: 13px;
     background-color: lightblue;
@@ -89,9 +88,13 @@ export const LinksDiv = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items:flex-end;
     text-decoration: none;
     font-size: 3rem;
-    background: lightblue;
+    background-image: url(${img2});
+    background-position-y:-100px;
+    background-position-x:-100px;
+    height:12rem;
     box-shadow: 35px 35px 70px 35px black;
 
         a:visited, a:link, a:active{
@@ -99,7 +102,7 @@ export const LinksDiv = styled.div`
             color: lightgoldenrodyellow;
         }
         a:hover{
-            color: black;
+            color: lightgreen;
         }
 
 `
